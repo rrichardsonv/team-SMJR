@@ -1,5 +1,5 @@
 helpers do
-  def guess(args={})
+  def process_guess(args={})
     current_card = Card.find(card_id)
     correct = user_guess == current_card.answer
     guess_deets = { round_id: args[:round_id],

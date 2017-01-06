@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :name, :email, :presence => true
   validates :email, :uniqueness => true
 
-  has_many :rounds
+  has_many :rounds, foreign_key: :player_id
   has_many :decks
 
 
