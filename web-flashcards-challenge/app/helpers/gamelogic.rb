@@ -24,10 +24,6 @@ helpers do
 
   def guess_count
     all_guesses = @round.guesses
-    #hash with each card
-    #[{ :card_id => , :question => , :guesses => }]
-
-
-
+    all_guesses.order(:card_id, :created_at, :correct)
   end
 end
