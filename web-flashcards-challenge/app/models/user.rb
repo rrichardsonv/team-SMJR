@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(params_hash)
-    user = Users.find_by(email: params_hash[:email])
+    user = User.find_by(email: params_hash[:email])
     if user && user.password == params_hash[:password]
       user.id
     else
