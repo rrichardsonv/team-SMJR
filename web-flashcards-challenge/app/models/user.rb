@@ -18,15 +18,15 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  def self.authenticate(params_hash)
-    user = User.find_by(email: params_hash[:email])
-    if user && user.password == params_hash[:password]
-      user.id
+
+  def self.authenticate(user_email, plain_text_password)
+    user = User.find_by(:email => user_email)
+    if user && user.password == plain_text_password
+      user
     else
-      'Not a valid user'
+      nil
       # This is an error message that is being returned
     end
   end
 
 end
-
