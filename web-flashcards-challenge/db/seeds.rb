@@ -1,4 +1,5 @@
-decks_hash = { :wood_deck => {:title => "Types of Wood", :author_id => 3},
+
+decks_hash = { :wood_deck => {:title => "Types of Wood",  :author_id => 3},
                :manga_deck => {:title => "Manga classics", :author_id => 1}
 }
 
