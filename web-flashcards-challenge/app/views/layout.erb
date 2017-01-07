@@ -15,25 +15,33 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Flashcards!</title>
 </head>
 <body>
-  <a href="/">Home</a>
+<div class="bg-dk-red">
+  <div class="left">
+  <a class='pipe-separate' href="/">Home</a>
   <% if session[:user_id] == nil %>
-    <a href="/sessions/new">Login</a>
-    <a href="/users/new">Register</a>
+    <a class='pipe-separate' href="/sessions/new">Login</a>
+    <a class='pipe-separate' href="/users/new">Register</a>
   <% end %>
   <% if session[:user_id] != nil %>
   <form action="/sessions" method="POST">
-    <input type="submit"  value="Logout">
+    <input class='button' type="submit"  value="Logout">
     <input type="hidden" name="_method" value="delete">
   </form>
   <% end %>
-
-      <div class="logo-container">
+</div>
+</div>
+    <div class="logo-container">
         <img class="logo" src="/images/nicubunu-Card-backs-grid-red-800px.png" class="center block">
-        <h1>Flashcards!</h1>
+        <h1>Choose a deck!</h1>
       </div>
   <%= yield %>
+  <footer class='bg-white'>
+    <span>Project by: Savance, Mike, Jim, and Rich</span><br><br>
+    <span>Card back image by Nicubunu</span><br>
+    <a href='https://openclipart.org/detail/23038/card-backs-grid-red'>https://openclipart.org/detail/23038/card-backs-grid-red</a>
+  </footer>
 </body>
 </html>

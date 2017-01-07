@@ -11,7 +11,7 @@
 /* element styling */
 html {
   height: 100%;
-  background-color: #900C3F;
+  background-color: #CB627A;
   /*background: url(../images/nicubunu-Card-backs-grid-red-800px.png);*/
   background-attachment: fixed;
   line-height: 1.4;
@@ -21,6 +21,21 @@ body {
   height: 100%;
 }
 
+h1 {
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.list-decks {
+  text-align: center;
+  list-style-type: none;
+  font-size: 2em;
+}
+
 a {
   height: 10em;
   color: #581845;
@@ -28,12 +43,17 @@ a {
 }
 
   a:hover {
-    color: #6ec7a5;
+    color: black;
+    background-color: white;
     text-decoration: underline;
   }
+footer {
+  padding-top: 8em;
+  text-align: center;
+}
 
 input[type=text], input[type=password], textarea {
-  color: #05724f;
+  color: #900C3F;
 }
 
 
@@ -51,7 +71,10 @@ input[type=text], input[type=password], textarea {
 }
 
 .left {
-  float: left;
+/*  float: left;
+*/
+text-align: center;
+color: white;
 }
 
 .right {
@@ -60,8 +83,9 @@ input[type=text], input[type=password], textarea {
 
 
 /* formatting */
-.bg-dk-green {
-  background-color: #05724f;
+.bg-dk-red {
+  background-color: #900C3F;
+ padding: 20px;
 }
 
 .bg-white {
@@ -69,7 +93,7 @@ input[type=text], input[type=password], textarea {
 }
 
 .button {
-  background: #32bb7d;
+  background: #CB627A;
   color: #fefefe;
   padding: 1em;
   text-decoration: none;
@@ -81,7 +105,7 @@ input[type=text], input[type=password], textarea {
     background-color: #6ec7a5;
   }
 
-.c-dk-green {
+.c-dk-red {
   color: #05724f;
 }
 
@@ -238,10 +262,14 @@ input[type=text], input[type=password], textarea {
   padding-left: 1em;
   padding-right: 1em;
   border-right: 1px solid;
+  color: white;
+  font-size: 2em;
 }
 
   .pipe-separate:first-of-type {
     padding-left: 0;
+    color: white;
+    font-size: 2em;
   }
 
   .pipe-separate:last-of-type {
@@ -254,7 +282,7 @@ input[type=text], input[type=password], textarea {
 }
 
 .t-light-green {
-  color: #32bb7d;
+  color: #CB627A;
 }
 
 .text-c {
@@ -278,12 +306,9 @@ input[type=text], input[type=password], textarea {
 }
 
 .logo-container {
-  border: 5px solid #05724f;
-  color: #05724f;
-  width: 305px;
-  height: 305px;
-  border-radius: 50%;
-  padding: 20px;
+  background-color: #900C3F;
+  padding: 20px
+  color: black;
   margin: 0 auto;
   text-align: center;
 }
