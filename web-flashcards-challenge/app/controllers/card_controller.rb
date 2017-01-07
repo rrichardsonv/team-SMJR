@@ -9,5 +9,6 @@ get "/rounds/:round_id/cards/:card_id" do
   else
     @current_card = Card.find_by(id: params[:card_id])
     erb :"/cards/show"
+
   end
 end
