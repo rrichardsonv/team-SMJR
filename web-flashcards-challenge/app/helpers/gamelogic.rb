@@ -20,9 +20,20 @@ helpers do
     all_cards.reject{|card| completed_cards.include?(card)}
   end
 
+
+  def check_guesses(guess_obj_array, card_id)
+    correct_guess = false
+    guess_obj_array.each do |guess|
+      if guess.correct == true && guess.card_id == card_id
+        correct_guess = true
+      end
+    end
+      correct_guess
+  end
+
   def done?
     #(current_round)
-    completed_cards = @current_round.guesses.select{|guess| guess[:correct]}.distinct
+    completed_cards = @current_round.guesses.select{|guess| guess[:correct] }
     # raise completed_cards.first.inspect
     #.where(correct: true)
     all_cards = @current_round.cards
@@ -38,3 +49,8 @@ helpers do
     all_guesses.order(:card_id, :created_at, :correct)
   end
 end
+
+# def first_try_correct(current_round)
+#   guess_array = current_round.guesses
+#   guess_array.select{ |guess| guess.}
+# end
