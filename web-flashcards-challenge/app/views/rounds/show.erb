@@ -1,9 +1,11 @@
 <h1>Welcome to the card game game</h1>
 <h4><%=@current_round.deck.title%> is the current deck</h4>
 
+<% if session[:user_id].class == Fixnum  %>
+<p>I am displaying</p>
 <ul>
   <%@current_round.deck.cards.each do |card|%>
-    <%if card.done?(@current_round)%>
+    <%if %>
     <form action="/guesses" method="POST">
       <p><%= card.question %></p>
       <input type="text" name="guess[body]">
@@ -13,3 +15,7 @@
     <%end%>
   <%end%>
 </ul>
+<% else %>
+<a href="/sessions/new">Click to login</a>
+<a href="users/new">Click to register</a>
+<% end %>
