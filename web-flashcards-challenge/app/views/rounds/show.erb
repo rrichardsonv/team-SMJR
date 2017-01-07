@@ -1,13 +1,14 @@
 <h1>Welcome to the card game game</h1>
-<h4><%=@current_round.guess_count%> is the current deck</h4>
+<h4><%=@current_round.deck.title%> is the current deck</h4>
 
 <% if session[:user_id].class == Fixnum  %>
 <ul>
   <li>Deck:<%=@current_round.deck.title%></li>
   <li>Total Cards: <%=@current_round.deck.cards.length%></li>
   <li>Total Guesses: <%=@current_round.guesses.length%></li>
-  <li>Guesses Correct on first try: <%=@current_round.guesses.select { |guess| guess}%></li>
-
+  <%if @correct_first%>
+  <li>Guesses Correct on first try: <%=@correct_first%></li>
+  <%end%>
 </ul>
 <% else %>
 <a href="/sessions/new">Click to login</a>

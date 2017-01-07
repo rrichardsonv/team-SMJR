@@ -2,11 +2,7 @@ helpers do
   def process_guess(args={})
 
     current_card = Card.find(args[:card_id].to_i)
-    #raise current_card.answer
-    #raise args[:body].inspect
     correct = args[:body].downcase == current_card.answer.downcase
-
-
     guess_deets = { round_id: args[:round_id],
                   card_id: args[:card_id],
                   body: args[:body],
@@ -24,7 +20,7 @@ helpers do
   def check_guesses(guess_obj_array, card_id)
     correct_guess = false
     guess_obj_array.each do |guess|
-      if guess.correct == true && guess.card_id == card_id
+      if guess.correct == true && guess.card_id == card_id.to_i
         correct_guess = true
       end
     end
@@ -32,10 +28,7 @@ helpers do
   end
 
   def done?
-    #(current_round)
     completed_cards = @current_round.guesses.select{|guess| guess[:correct] }
-    # raise completed_cards.first.inspect
-    #.where(correct: true)
     all_cards = @current_round.cards
     if completed_cards.length == all_cards.length
       true
@@ -48,9 +41,19 @@ helpers do
     all_guesses = @round.guesses
     all_guesses.order(:card_id, :created_at, :correct)
   end
+
+
+def first_try_correct(current_round)
+  guess_array = current_round.guesses
+  guess_array.select(:id).distinct.where.not(:correct => false)
 end
 
-# def first_try_correct(current_round)
-#   guess_array = current_round.guesses
-#   guess_array.select{ |guess| guess.}
-# end
+def guess_check(params)
+  card = Card.find(params[:card_id])
+  if card.answer.downcase == params[:body].downcase
+    true
+  else
+    false
+  end
+end
+end

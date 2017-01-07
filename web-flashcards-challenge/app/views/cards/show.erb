@@ -1,6 +1,6 @@
 <h1>Welcome to the card game game</h1>
 <h4><%=@current_round.deck.title%> is the current deck</h4>
-<h4><%=@current_round.guesses%> is current guesses</h4>
+<h4><%=@current_round.guesses.length%> is current guesses</h4>
 <% if session[:user_id].class == Fixnum  %>
 <ul>
     <form action="/guesses" method="POST">
@@ -13,5 +13,5 @@
 </ul>
 <% else %>
 <a href="/sessions/new">Click to login</a>
-<a href="users/new">Click to register</a>
+<a href="/users/new">Click to register</a>
 <% end %>

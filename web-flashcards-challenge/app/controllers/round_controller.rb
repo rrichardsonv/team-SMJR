@@ -6,5 +6,6 @@ end
 
 get "/rounds/:id" do
   @current_round = Round.find(params[:id])
+  @correct_first = first_try_correct(@current_round).length
   erb :"/rounds/show"
 end
