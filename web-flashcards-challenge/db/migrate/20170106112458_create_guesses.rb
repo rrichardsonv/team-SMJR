@@ -4,7 +4,7 @@ class CreateGuesses < ActiveRecord::Migration
       t.integer :round_id
       t.integer :card_id
       t.string :body
-      t.boolean :correct
+      t.boolean :correct, { :default => false }
 
       t.timestamps
     end
