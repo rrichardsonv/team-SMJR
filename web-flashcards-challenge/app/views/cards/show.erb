@@ -1,18 +1,15 @@
 <h1>Welcome to the card game game</h1>
-<h4><%=@current_round.guess_count%> is the current deck</h4>
-
+<h4><%=@current_round.deck.title%> is the current deck</h4>
+<h4><%=@current_round.guesses%> is current guesses</h4>
 <% if session[:user_id].class == Fixnum  %>
 <ul>
-  <%@current_round.deck.cards.each do |card|%>
-    <%if %>
     <form action="/guesses" method="POST">
-      <p><%= card.question %></p>
+      <p><%= @current_card.question %></p>
       <input type="text" name="guess[body]">
       <input type="hidden" name="guess[round_id]" value= "<%= @current_round.id%>">
-      <input type= "hidden" name="guess[card_id]" value= "<%=card.id%>">
+      <input type= "hidden" name="guess[card_id]" value= "<%=@current_card.id%>">
+      <input type="submit" name="Submit">
     </form>
-    <%end%>
-  <%end%>
 </ul>
 <% else %>
 <a href="/sessions/new">Click to login</a>
