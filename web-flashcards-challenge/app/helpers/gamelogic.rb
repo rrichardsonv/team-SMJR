@@ -15,9 +15,14 @@ helpers do
       raise 'didnt save now what'
     end
   end
+  def end_of_deck
+    completed_cards = @current_round.guesses.where(correct: true).cards
+    all_cards = @current_round.cards
+    all_cards.reject{|card| completed_cards.include?(card)}
+  end
 
   def done?
-    completed_cards = @current_round.guesses.cards.where(correct: true)
+    completed_cards = @current_round.guesses.where(correct: true).cards
     all_cards = @current_round.cards
     completed_cards.length == all_cards.length
   end
