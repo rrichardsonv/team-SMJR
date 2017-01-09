@@ -1,0 +1,30 @@
+<h1>Create a new deck!</h1>
+<% if @errors %>
+    <% @errors.each do |error| %>
+    <p style='color: red;'><%= error %>
+      <% end %>
+  <% end %>
+<form class='center' action='/decks' method='post'>
+  <div class='center w-50 mar-l-43'>
+  <input class='center' type="text" name="deck[title]"><br>
+  <label class='center text-c'>Deck name!</label><br><br><br>
+  <input type="hidden" name="deck[author_id]" value="<%=@session%>">
+</div><br>
+<div class='logo-container'>
+  <%count = 0%>
+  <%6.times do%>
+  <%count += 1%>
+  <br>
+    <div class="inline">
+    <span>Card <%=count%>....................................................................</span>
+    <input type="hidden" name="card[<%=count.inspect%>][deck_id]" value="<%=@next_deck_id%>">
+    <input type="textarea" name="card[<%=count.inspect%>][question]" placeholder='question'><span>||||</span>
+    <input type="text" name="card[<%=count.inspect%>][answer]" placeholder='answer'>
+    </div>
+  <%end%>
+  <br>
+  <br>
+  <br>
+  <input type='submit'>
+</div>
+</form>
