@@ -30,11 +30,7 @@ helpers do
   def done?
     completed_cards = @current_round.guesses.select{|guess| guess[:correct] }
     all_cards = @current_round.cards
-    if completed_cards.length == all_cards.length
-      true
-    else
-      false
-    end
+    completed_cards.length == all_cards.length
   end
 
   def guess_count
@@ -50,10 +46,8 @@ end
 
 def guess_check(params)
   card = Card.find(params[:card_id])
-  if card.answer.downcase == params[:body].downcase
-    true
-  else
-    false
-  end
+  card.answer.downcase == params[:body].downcase
 end
 end
+
+#completed_card_ids = {:id => Card.joins(:guesses).where('guesses.correct = ?', 'true').where("guesses.round_id = ?", "#{@current_round}").collect{|card| card.id}}

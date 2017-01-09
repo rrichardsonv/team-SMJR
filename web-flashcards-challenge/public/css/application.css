@@ -95,8 +95,14 @@ color: white;
 .button {
   background: #CB627A;
   color: #fefefe;
-  padding: 1em;
+  padding: 0.5em;
   text-decoration: none;
+}
+
+.log-out{
+  padding:0;
+  width:135px;
+  display: inline-block;
 }
 
   .button:hover {
@@ -147,6 +153,13 @@ color: white;
 
 .hover-underline:hover {
   text-decoration: underline;
+}
+.mar-l-43 {
+  margin-left: 43%;
+}
+
+.mar-l-40 {
+  margin-left: 40%;
 }
 
 .mar-b-1 {
@@ -288,6 +301,10 @@ color: white;
 .text-c {
   text-align: center;
 }
+.w-33 {
+  width: 33%;
+}
+
 
 .w-50 {
   width: 50%;

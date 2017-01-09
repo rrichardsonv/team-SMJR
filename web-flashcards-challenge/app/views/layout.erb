@@ -20,13 +20,14 @@
 <body>
 <div class="bg-dk-red">
   <div class="left">
-  <a class='pipe-separate' href="/">Home</a>
+    <a class='pipe-separate' href="/">Home</a>
   <% if session[:user_id] == nil %>
     <a class='pipe-separate' href="/sessions/new">Login</a>
     <a class='pipe-separate' href="/users/new">Register</a>
   <% end %>
   <% if session[:user_id] != nil %>
-  <form action="/sessions" method="POST">
+  <a class='pipe-separate' href="/decks/new">Create a Deck!</a>
+  <form class="no-padding log-out"  action="/sessions" method="POST">
     <input class='button' type="submit"  value="Logout">
     <input type="hidden" name="_method" value="delete">
   </form>
@@ -35,7 +36,9 @@
 </div>
     <div class="logo-container">
         <img class="logo" src="/images/nicubunu-Card-backs-grid-red-800px.png" class="center block">
+        <%if !@next_deck_id%>
         <h1>Choose a deck!</h1>
+        <%end%>
       </div>
   <%= yield %>
   <footer class='bg-white'>
