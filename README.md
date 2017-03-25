@@ -1,7 +1,15 @@
-#Robert Richardson
-##Software developer
-####[github.com/rrichardsonv](www.github.com/rrichardsonv)
-####[linkedin.com/in/rrichardsonv](www.linkedin.com/in/rrichardsonv)
-####_Chicago, IL_
+## Phase-2 FlashCards Group Project
 
-###Summary
+### Team Members:
+1.  Savance (@SaVanceX)
+2.  Mike (@mikejtaylor)
+3.  Jim (@JHallberg5100)
+4.  Rich (@rrichardsonv)
+
+### Description
+
+A fully functioning web app for building and playing flashcard decks that tracks stats on correct vs incorrect
+
+### Difficulties
+
+Sorting out correctly guessed cards requires too many queries reducing performativity 
